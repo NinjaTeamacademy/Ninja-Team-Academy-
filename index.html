@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ninja Team Academy</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .line-clamp-2 {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div id="login" class="min-h-screen flex items-center justify-center bg-gray-200">
+    <form id="loginForm" class="bg-white p-6 rounded shadow-md w-80">
+      <div class="flex justify-center mb-4">
+        <img src="assets/logo.png" alt="Logo Ninja Team Academy" class="h-20" />
+      </div>
+      <h2 class="text-lg font-bold mb-4 text-center">Login Ninja</h2>
+      <input id="user" type="text" placeholder="Login" class="w-full p-2 mb-2 border rounded" required />
+      <input id="pass" type="password" placeholder="Senha" class="w-full p-2 mb-4 border rounded" required />
+      <button type="submit" class="w-full bg-red-600 text-white p-2 rounded hover:bg-red-700">Entrar</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const user = document.getElementById("user").value;
+      const pass = document.getElementById("pass").value;
+      if (user === "ninjaacademy" && pass === "7024") {
+        localStorage.setItem("ninjaUser", user);
+        alert("Login realizado com sucesso!");
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Login ou senha inválidos!");
+      }
+    });
+  </script>
+</body>
+</html>
